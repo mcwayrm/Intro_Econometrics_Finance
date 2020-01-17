@@ -1,0 +1,54 @@
+---
+title: "Chapter 2: Getting Started"
+author: "Ryan McWay"
+output:
+  word_document: default
+---
+##**ECON 427- Applied Econometrics Capstone**
+***
+  
+## _Packages_
+Installing the read excel package
+```{r, echo = TRUE}
+# install.packages('readxl')
+```
+Or, if you already have it, you can update the package to make sure you have all the cool new tricks installed
+```{r, echo = TRUE}
+# update.packages('readxl')
+```
+_For the purpose of knitting the log of this file (printing out the code and results), I have to comment out these past two commands (this is done with the # before the line of code). If you want to run them yourself, I suggest doing them in the console/terminal and not in the script itself. And also remember to remove the # before you run the code._
+
+To utlize this package, I need to call it from my library of packages
+```{r, echo = TRUE}
+library('readxl')
+library(knitr)
+```
+
+## _Import Data_
+Import in the UKHP.xls using the readxl package, check out a sample of the data. View will show you all the data if you would like to view it. Declaring the type is only useful in terms of ensuring the data format and sometimes when trying to speed up import load time.
+```{r, echo = TRUE}
+Rate1 <- read_excel("~/Ryan/USF/2020-Spring/intro_finance_metrics/data/Chapter_1/Excel/RATE1.xls",
+                    col_types = c('numeric', 'numeric','numeric', 'numeric'))
+head(Rate1)
+```
+
+## _Data Description_
+Display the summary stats of this dataframe, and the variable names
+```{r, echo = TRUE}
+summary(Rate1)
+names(Rate1)
+```
+
+## _Changing and Creating Data_
+Creating a new variable
+```{r, echo = TRUE}
+Rate1$log_rating <- log(Rate1$RATING)
+```
+
+
+## _Graphics and Plots_
+A quick graphic
+```{r, echo = TRUE}
+par(cex.axis = 1, cex.lab = 1, lwd = 2)
+hist(Rate1$RATING)
+```

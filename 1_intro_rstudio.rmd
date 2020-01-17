@@ -1,0 +1,18 @@
+---
+title: "Chapter 1: Introduction to R"
+author: "Ryan McWay"
+output:
+  word_document: default
+---
+##**ECON 427- Applied Econometrics Capstone**
+***
+
+## _What Does RStudio Look Like?_
+Application in the Console
+```{r, echo = TRUE}
+1+1
+```
+Setting up your working directory. Notice that with ~, this is a relative rather than an absolute path. Absoulte paths are the complete path of the directory (a directory is a folder) where as a relative path uses (typically) linux or unix style commands to move up or down in the path to a new directory or file.
+```{r, echo = TRUE}
+setwd("~/Ryan/USF/2020-Spring/intro_finance_metrics")
+```
